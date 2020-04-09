@@ -17,8 +17,17 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Build with Gradle
-      run: ./gradlew build
+    - name: Run Gradle command
+      uses: Raul6469/android-gradle-action@2.0.0
+      with:
+        # The gradle command you wish to run (required)
+        script: build
+
+        # In some cases, you may need to provide
+        # Android licence agreement id
+        # You can find it on your own machine under `$ANDROID_HOME/license`,
+        # and add the file content as a GitHub secret named `$ANDROID_LICENCE`.
+        #android-licence: ${{ secrets.ANDROID_LICENCE }}  
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
