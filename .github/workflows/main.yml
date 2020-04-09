@@ -30,7 +30,7 @@ jobs:
         cd $GITHUB_WORKSPACE/apps/sysui
         source tools/environment.sh
         cd $GITHUB_WORKSPACE/apps/sysui/armadillo
-        $GITHUB_WORKSPACE/lib/flutter build apk --split-per-abi --debug
+        flutter build apk --split-per-abi --debug
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
