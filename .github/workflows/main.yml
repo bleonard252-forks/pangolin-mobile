@@ -24,6 +24,9 @@ jobs:
     - name: Install Flutter
       run: |
         bash ./install_flutter.sh
+        cd $GITHUB_WORKSPACE/apps/sysui
+        source tools/environment.sh
+        flutter upgrade
     - name: Build app
       run: |
         cd $GITHUB_WORKSPACE
