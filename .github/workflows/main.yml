@@ -26,6 +26,7 @@ jobs:
         bash ./install_flutter.sh
         cd $GITHUB_WORKSPACE/apps/sysui
         source tools/environment.sh
+        export LANG=en_us.utf8
         flutter upgrade
     - name: Build app
       run: |
@@ -34,6 +35,7 @@ jobs:
         cd $GITHUB_WORKSPACE/apps/sysui
         source tools/environment.sh
         cd $GITHUB_WORKSPACE/apps/sysui/armadillo
+        export LANG=en_us.utf8
         flutter build apk
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
