@@ -29,7 +29,7 @@ jobs:
         ./fix_environment.sh
         cd $GITHUB_WORKSPACE/apps/sysui
         source tools/environment.sh
-        cd $GITHUB_WORKSPACE/armadillo
+        cd $GITHUB_WORKSPACE/apps/sysui/armadillo
         $GITHUB_WORKSPACE/lib/flutter build apk --split-per-abi --debug
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
@@ -37,4 +37,4 @@ jobs:
         # Artifact name
         name: Pangolin APKs
         # Directory containing files to upload
-        path: $GITHUB_WORKSPACE/armadillo/build/app/outputs/
+        path: $GITHUB_WORKSPACE/apps/sysui/armadillo/build/app/outputs/
