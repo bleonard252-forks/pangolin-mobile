@@ -24,11 +24,17 @@ jobs:
     - name: Install Flutter
       run: ./install_flutter.sh
     - name: Build app
-      run: flutter build apk --split-per-abi --debug
+      run: |
+        cd $GITHUB_WORKSPACE
+        ./fix_environment.sh
+        cd $GITHUB_WORKSPACE/apps/sysui
+        source tools/environment.sh
+        cd $GITHUB_WORKSPACE/armadillo
+        $GITHUB_WORKSPACE/lib/flutter build apk --split-per-abi --debug
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         # Artifact name
         name: Pangolin APKs
         # Directory containing files to upload
-        path: $GITHUB_WORKSPACE/build/app/outputs/
+        path: $GITHUB_WORKSPACE/armadillo/build/app/outputs/
