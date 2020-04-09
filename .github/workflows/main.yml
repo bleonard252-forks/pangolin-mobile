@@ -31,7 +31,7 @@ jobs:
         cd $GITHUB_WORKSPACE/apps/sysui
         source tools/environment.sh
         cd $GITHUB_WORKSPACE/apps/sysui/armadillo
-        flutter build
+        flutter build apk
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
